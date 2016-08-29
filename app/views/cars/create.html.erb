@@ -36,7 +36,7 @@
         <input class="btn btn-danger" type="submit" value="Brake Car"/>
       </form>
       <br>
-      <li>Lights <i class="fa fa-lightbulb-o" aria-hidden="true"></i> : <%= @car.lights%></li>
+      <li>Lights <i class="fa fa-lightbulb-o <%= "yellow" if @car.lights == "on" %>" aria-hidden="true"></i> : <%= @car.lights%></li>
       <div class="space-6">
       </div>
       <form method="get" action="/cars/lights_switch">
