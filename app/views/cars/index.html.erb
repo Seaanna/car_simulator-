@@ -1,7 +1,11 @@
 <h1>Welcome to the Car Simulator</h1>
+<p>
+  Please enter your car make and year to begin
+</p>
 <!-- taken from the routes page to direct the path -->
 <form method="get" action="/cars/create">
-  <input type="text" name="make" placeholder="make"/>
-  <input type="text" name="year" placeholder="year"/>
-  <input type="submit" value="Simulate Car"/>
+  <input type="text" name="make" placeholder="make" required/>
+  <input type="number" name="year" placeholder="year" min="1900" max="<%= Date.current.year %>" required/>
+  <input type="color" name="color" required>
+  <input class="btn btn-primary" type="submit" value="Simulate Car"/>
 </form>

@@ -5,7 +5,7 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(params[:make],params[:year].to_i)
+    @car = Car.new(params[:make],params[:year].to_i,params[:color])
     session[:car] = @car.to_yaml
   end
 
@@ -36,15 +36,13 @@ class CarsController < ApplicationController
 
   def parking_brake
     @car = YAML.load(session[:car])
-    # alex's idea
-    if @car.speed >0
-      @car.parking_brake = "Please set parking brake at 0 mph"
+    if @car.speed == 0
+      @car.parking_brake = params[:parking_brake]
+      session[:car] = @car.to_yaml
+      render 'create.html.erb'
     else
-    @car.parking_brake = params[:parking_brake]
+      flash[:alert] = "Sorry but you cannot set the parking brake when you are moving"
+      redirect_to :back
     end
-    # end alex's idea
-    session[:car] = @car.to_yaml
-
-    render 'create.html.erb'
   end
 end

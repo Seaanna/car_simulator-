@@ -1,31 +1,84 @@
-<h1>Simulated Car</h1>
-<br>
-Make : <%= @car.make %>
-<br>
-Year : <%= @car.year %>
-<br>
-Speed : <%= @car.speed %>
-<br>
-Lights : <%= @car.lights%>
-<br>
-Parking Brake: <%= @car.parking_brake %>
-<form method="get" action="/cars/accelerate">
-<input type="submit" value="Accelerate Car" />
-</form>
-<form method="get" action="/cars/brake">
-<input type="submit" value="Brake Car"/>
-</form>
-<br>
-<form method="get" action="/cars/lights_switch">
-<input type="submit" value="Light Switch"/>
-</form>
-<br>
-<form method="get" action="/cars/parking_brake">
-  Set
-  <%= radio_button_tag 'parking_brake','set'%>
-  <br>
-  Release
-  <%= radio_button_tag 'parking_brake','release'%>
-  <br>
-  <input type="submit" value="Update Parking Brake"/>
-</form>
+
+<div class="row">
+  <div class="col-md-3 text-center"></div>
+  <div class="col-md-6 text-center">
+    <div class="space-10"></div>
+	  <h1 class="huge text-center">Simulated Car <i class="margin_left fa fa-car" aria-hidden="true" style="color: <%= @car.color %>"></i></h1>
+    <%= link_to "Reset Car", root_path, class: "btn" %>
+    <div class="space-4"></div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 text-center"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="space-12"></div>
+  </div>
+</div>
+<div class="row big text-center">
+  <div class="col-md-12">
+    <ul>
+      <li>Make : <%= @car.make %></li>
+      <li>Year : <%= @car.year %></li>
+      <li>Speed : <%= @car.speed %></li>
+      <div class="space-20">
+      </div>
+      <form method="get" action="/cars/accelerate">
+        <input class="btn btn-success" type="submit" value="Accelerate Car"/> <i class="margin_left fa fa-fast-forward" aria-hidden="true"></i>
+      </form>
+      <div class="space-4">
+      </div>
+      <form method="get" action="/cars/brake">
+        <input class="btn btn-danger" type="submit" value="Brake Car"/>
+      </form>
+      <br>
+      <li>Lights <i class="fa fa-lightbulb-o" aria-hidden="true"></i> : <%= @car.lights%></li>
+      <div class="space-6">
+      </div>
+      <form method="get" action="/cars/lights_switch">
+        <input class="btn btn-warning" type="submit" value="Light Switch"/>
+      </form>
+      <br>
+      <li>Parking Brake: <%= @car.parking_brake %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="space-12"></div>
+    </div>
+  </div>
+  <div class="row bigger text-center">
+    <div accesskey=""class="col-md-12">
+      <form method="get" action="/cars/parking_brake">
+        Set Brake
+        <%= radio_button_tag 'parking_brake','is set, you may not accelerate'%>
+        <br>
+        Release Brake
+        <%= radio_button_tag 'parking_brake','is released, you may increase speed'%>
+        <br>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Update Parking Brake"/>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="space-14"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 small text-center black_border_top">
+      <span class="big">Created by Sea-Anna Thompson</span>
+    </div>
+    <div class="col-md-12">
+      <div class="space-2"></div>
+    </div>
+  </div>
+</div>

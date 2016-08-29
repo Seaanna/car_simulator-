@@ -1,11 +1,12 @@
 # rules of your objects
 class Car
-  def initialize(make,year)
+  def initialize(make,year,color)
     @make = make
     @year = year
     @speed = 0
     @lights = "off"
-    @parking_brake = "release"
+    @parking_brake = "is released,GO FAST"
+    @color = color
   end
 
   def speed= s
@@ -33,7 +34,7 @@ class Car
   end
 
   def accelerate
-    if @parking_brake == "set"
+    if @parking_brake == "is set, you may not accelerate"
       @speed
     else
     @speed = @speed + 10
@@ -67,6 +68,9 @@ class Car
     @parking_brake = pb
   end
 
+def color
+  @color
+end
 
 
 
