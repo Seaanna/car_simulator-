@@ -5,7 +5,7 @@ class Car
     @year = year
     @speed = 0
     @lights = "off"
-    @parking_brake = "is released,GO FAST"
+    @parking_brake = "is released, GO FAST"
     @color = color
   end
 
